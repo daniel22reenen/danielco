@@ -28,6 +28,16 @@
 .navbar-fixed-top {
   top: auto;
 }
+/* Fix zoomed background image on mobile */
+@media (max-width: 768px) {
+  #jarallax-container-0 > div {
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
+
 #mobirisePromo.container-banner {
   height: 11rem;
   opacity: 1;
