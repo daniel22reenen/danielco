@@ -25,6 +25,34 @@
 
 
 <style>
+<style>
+/* Shipping Fields Container */
+.shipping-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Inputs and select fields */
+.shipping-fields input,
+.shipping-fields select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1 1 200px;
+}
+
+/* Button styling */
+.item-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+
 	
 /* Container styling */
 .shipping-fields {
@@ -304,8 +332,8 @@ return true;
                         <p class="mbr-text mbr-fonts-style display-7">Elegant wooden 2-tier planter stand 🌿 Perfect for displaying small pots, candles, or décor. Adds a natural, modern touch to any desk, shelf, or living space. (16.5cm tall, 17cm long, 11cm wide, 8cm diameter plant base.)</p>
                         <div class="mbr-section-btn item-footer">
   <!-- PayFast Form -->
- <div class="item-footer">
-  <form onsubmit="return actionPayFastJavascript(this);" name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
+<div class="item-footer">
+  <form id="payfastForm" onsubmit="return actionPayFastJavascript(this);" name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
     <input type="hidden" name="cmd" value="_paynow">
     <input type="hidden" name="receiver" value="22637983">
     <input type="hidden" name="return_url" value="https://danielco.vercel.app">
@@ -318,8 +346,8 @@ return true;
       <input required id="custom_quantity" type="number" name="custom_quantity" value="1">
     </label>
 
-    <!-- Shipping Fields (simplified, styled via CSS) -->
-    <div class="shipping-fields">
+    <!-- Shipping Fields (hidden initially) -->
+    <div class="shipping-fields" id="shippingFields" style="display:none;">
       <input required type="text" name="line1" placeholder="Line 1" class="shipping">
       <input type="text" name="line2" placeholder="Line 2" class="shipping">
       <input required type="text" name="city" placeholder="City" class="shipping">
@@ -338,7 +366,8 @@ return true;
     </div>
 
     <!-- Styled Buy Now Button -->
-    <button type="submit" class="btn item-btn btn-primary display-7">Buy Now</button>
+    <button type="button" id="showShipping" class="btn item-btn btn-primary display-7">Buy Now</button>
+    <button type="submit" id="submitBtn" class="btn item-btn btn-primary display-7" style="display:none;">Confirm Purchase</button>
   </form>
 </div>
 						</div>
@@ -681,6 +710,18 @@ return true;
   <script src="./danielssssssssdecorrrr_files/mbr-switch-arrow.js.download"></script>
   <script src="./danielssssssssdecorrrr_files/script.js.download"></script>
   <script src="./danielssssssssdecorrrr_files/formoid.min.js.download"></script>
+<script>
+const showShippingBtn = document.getElementById("showShipping");
+const shippingFields = document.getElementById("shippingFields");
+const submitBtn = document.getElementById("submitBtn");
+
+showShippingBtn.addEventListener("click", () => {
+  shippingFields.style.display = "flex"; // show shipping inputs
+  showShippingBtn.style.display = "none"; // hide original Buy Now
+  submitBtn.style.display = "inline-block"; // show confirm button
+});
+</script>
+
   
   
   
