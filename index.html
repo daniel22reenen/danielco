@@ -270,76 +270,44 @@ return true;
                         <p class="mbr-text mbr-fonts-style display-7">Elegant wooden 2-tier planter stand 🌿 Perfect for displaying small pots, candles, or décor. Adds a natural, modern touch to any desk, shelf, or living space. (16.5cm tall, 17cm long, 11cm wide, 8cm diameter plant base.)</p>
                         <div class="mbr-section-btn item-footer">
   <!-- PayFast Form -->
+ <div class="item-footer">
   <form onsubmit="return actionPayFastJavascript(this);" name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
-    <input required type="hidden" name="cmd" value="_paynow">
-    <input required type="hidden" name="receiver" pattern="[0-9]" value="22637983">
+    <input type="hidden" name="cmd" value="_paynow">
+    <input type="hidden" name="receiver" value="22637983">
     <input type="hidden" name="return_url" value="https://danielco.vercel.app">
     <input type="hidden" name="cancel_url" value="https://danielco.vercel.app">
-    <input required type="hidden" name="amount" value="250">
-    <table>
-      <tr>
-        <td><label for="custom_quantity">Quantity: </label></td>
-        <td><input required id="custom_quantity" type="number" name="custom_quantity" value="1"></td>
-      </tr>
-    </table>
+    <input type="hidden" name="amount" value="250">
+    <input type="hidden" name="item_name" value="Bamboo Desk Stand">
 
-    <input required type="hidden" name="item_name" maxlength="255" value="Bamboo Desk Stand">
-    <input type="hidden" name="item_description" maxlength="255" value="Bamboo Desk Stand">
+    <!-- Quantity -->
+    <label>Quantity:
+      <input required id="custom_quantity" type="number" name="custom_quantity" value="1">
+    </label>
 
-    <!-- Shipping fields -->
-    <table>
-      <tr>
-        <td colspan="2"><span style="font-weight: bold;">Shipping Address</span></td>
-      </tr>
-      <tr>
-        <td><span style="color:red;">*</span>&nbsp;Line 1</td>
-        <td><input type="text" name="line1" class="shipping" value=""></td>
-      </tr>
-      <tr>
-        <td>Line 2</td>
-        <td><input type="text" name="line2" class="shipping" value=""></td>
-      </tr>
-      <tr>
-        <td><span style="color:red;">*</span>&nbsp;City</td>
-        <td><input type="text" class="shipping" name="city" value=""></td>
-      </tr>
-      <tr>
-        <td><span style="color:red;">*</span>&nbsp;Province</td>
-        <td><input type="text" class="shipping" name="region" value=""></td>
-      </tr>
-      <tr>
-        <td><span style="color:red;">*</span>&nbsp;Country</td>
-        <td>
-          <select name="country" class="shipping">
-            <option value="" selected="selected">- Select -</option>
-            <option value="South Africa">South Africa</option>
-            <option value="">------------------------</option>
-            <option value="Botswana">Botswana</option>
-            <option value="Lesotho">Lesotho</option>
-            <option value="Mauritius">Mauritius</option>
-            <option value="Mozambique">Mozambique</option>
-            <option value="Swaziland">Swaziland</option>
-            <option value="Zimbabwe">Zimbabwe</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><span style="color:red;">*</span>&nbsp;Postal Code</td>
-        <td><input type="number" name="code" class="shipping" value=""></td>
-      </tr>
-    </table>
+    <!-- Shipping Fields (simplified, styled via CSS) -->
+    <div class="shipping-fields">
+      <input required type="text" name="line1" placeholder="Line 1" class="shipping">
+      <input type="text" name="line2" placeholder="Line 2" class="shipping">
+      <input required type="text" name="city" placeholder="City" class="shipping">
+      <input required type="text" name="region" placeholder="Province" class="shipping">
+      <select name="country" class="shipping">
+        <option value="" selected>- Select Country -</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Botswana">Botswana</option>
+        <option value="Lesotho">Lesotho</option>
+        <option value="Mauritius">Mauritius</option>
+        <option value="Mozambique">Mozambique</option>
+        <option value="Swaziland">Swaziland</option>
+        <option value="Zimbabwe">Zimbabwe</option>
+      </select>
+      <input required type="text" name="code" placeholder="Postal Code" class="shipping">
+    </div>
 
-    <!-- Pay button -->
-    <table>
-      <tr>
-        <td colspan=2 align=center>
-          <input type="image" src="https://my.payfast.io/images/buttons/BuyNow/Primary-Large-BuyNow.png" alt="Buy Now" title="Buy Now with Payfast">
-        </td>
-      </tr>
-    </table>
+    <!-- Styled Buy Now Button -->
+    <button type="submit" class="btn item-btn btn-primary display-7">Buy Now</button>
   </form>
 </div>
-
+						</div>
                     </div>
 
                 </div>
